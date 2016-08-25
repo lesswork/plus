@@ -1,0 +1,424 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+#include "stdafx.h"
+
+#include<iostream>
+using namespace std;
+// namespace
+
+#if 0 
+int main() {
+
+	cout << "Hello from C++ " << endl;
+
+	cout << 110 << endl;
+	
+	int x = 100;
+	cout << x << endl;
+	cout << x + 10 << endl;
+
+	cin >> x;
+
+	cout << "you entered : " << x << endl;
+
+
+	return 0;
+}
+#endif 
+
+#if 0
+#define MAX 10	
+
+class MyStack {
+private : 
+	int arr[MAX];
+	int index;
+
+public:	
+	void Push(int elem) {
+		if (index < MAX) {
+			++(index);
+			arr[index] = elem;
+		}
+	}
+
+	int Pop()
+	{
+		if (index >= 0) {
+			int x = arr[index];
+			--(index);
+			return x;
+		}
+	}
+
+	void init() { index = -1;  }
+};
+
+int main() {
+	MyStack s1; 
+	cout << sizeof(s1) << endl;
+	//s1.index = 1; 
+	s1.init();
+	
+	s1.Push(10);
+	s1.Push(20);
+	s1.Push(39);
+
+	int x = s1.Pop();
+	cout << x << endl;    // 39
+
+
+	MyStack s2; 
+	s2.init();
+
+	return 0;
+}
+#endif 
+
+#if 0
+#define MAX 10
+// MyStack.h
+class MyStack {
+private:
+	int arr[MAX];
+	int index;
+public:
+	void Push(int elem);
+	int Pop();
+	inline void init();
+};
+
+// MyStack.cpp .C .cxx 
+void MyStack:: Push(int elem) {
+	if (index < MAX) {
+		++(index);
+		arr[index] = elem;
+	}
+}
+
+int MyStack:: Pop()
+{
+	if (index >= 0) {
+		int x = arr[index];
+		--(index);
+		return x;
+	}
+}
+
+void MyStack :: init() { index = -1; }
+
+int main() {
+	MyStack s1;
+	cout << sizeof(s1) << endl;
+	//s1.index = 1; 
+	s1.init();
+
+	s1.Push(10);
+	s1.Push(20);
+	s1.Push(39);
+
+	int x = s1.Pop();
+	cout << x << endl;    // 39
+
+	MyStack s2;
+	s2.init();
+
+	return 0;
+}
+#endif 
+#if 0
+void DoSomething(int x , int y = 8, int z =8 );
+
+int main() {
+	DoSomething(20, 33);
+	
+	return 0;
+}
+
+void DoSomething(int x, int y, int z) {
+
+	cout << "value of x is " << x << endl;
+}
+
+class Truck {
+	int wheels;
+
+public:
+	void SetWheels(int num = 4) { wheels = num; }
+};
+
+int main() {
+	Truck t1;
+	t1.SetWheels();
+	Truck t2; 
+	t2.SetWheels();
+
+	return 0;
+}
+#endif 
+
+
+#if 0
+#define MAX 10
+// MyStack.h
+class MyStack {
+private:
+	int arr[MAX];
+	int index;
+public:
+	MyStack();
+	void Push(int elem);
+	int Pop();
+};
+
+// MyStack.cpp .C .cxx 
+void MyStack::Push(int elem) {
+	if (index < MAX) {
+		++(index);
+		arr[index] = elem;
+	}
+}
+
+int MyStack::Pop()
+{
+	if (index >= 0) {
+		int x = arr[index];
+		--(index);
+		return x;
+	}
+}
+
+MyStack::MyStack() {
+	cout << "Constructor is invoked" << endl;
+	index = -1;
+}
+
+class Truck {
+	int wheels;
+	char name[10];
+
+public:
+	Truck() {          // Default Constructor
+		wheels = 4;
+		strcpy(name, "Ashoka");
+	}
+
+	Truck(int num) {    // parameterized constructor
+		wheels = num;
+	}
+
+	void Display() {
+		cout << "wheels = " << wheels << endl;
+	}
+};
+
+
+int main() {
+	Truck t1;
+	Truck t2(8);    // Truck t2 = Truck(8);
+
+	t1.Display();
+	t2.Display();
+	return 0;
+}
+
+#endif 
+
+#if 0
+int main() {
+
+	int x = 10;
+
+
+	int& y = x;
+
+	++y;
+
+	int z = 20;
+	y = z;    // const pointer 
+
+	cout << &x << " " << &y << endl;
+	cout << x << endl;
+
+
+	return 0;
+}
+#endif 
+#if 0
+void SwapData(int* p, int* q) {
+	int temp = *p;
+	*p = *q;
+	*q = temp;
+}
+
+void SwapData(int& p, int& q) {
+	int temp = p;
+	p = q;
+	q = temp;
+}
+
+int& GetSquare(int& num) {
+	num = num * num;
+	return num;
+}
+
+int main() {
+	int a = 10;      
+	int b = 20;
+
+	a = GetSquare(b);
+
+	GetSquare(b) = 33;
+
+	cout << a << " " << b << endl;
+
+	return 0;
+}
+#endif 
+
+#if 0
+int main() {
+	int *ptr = (int*) malloc(sizeof(int)* 10);
+	*ptr = 10; 
+
+	free(ptr);
+
+	return 0;
+
+}
+#endif 
+
+#define MAX 10
+class MyStack {
+private:
+	int arr[MAX];
+	int index;
+public:
+	MyStack();
+	void Push(int elem);
+	int Pop();
+};
+
+// MyStack.cpp .C .cxx 
+void MyStack::Push(int elem) {
+	if (index < MAX) {
+		++(index);
+		arr[index] = elem;
+	}
+}
+
+int MyStack::Pop()
+{
+	if (index >= 0) {
+		int x = arr[index];
+		--(index);
+		return x;
+	}
+}
+
+MyStack::MyStack() {
+	cout << "Constructor is invoked" << endl;
+	index = -1;
+}
+
+#if 0
+int main() {
+
+	MyStack* p1 = (MyStack*)malloc(sizeof(MyStack));
+
+	free(p1);
+
+	MyStack* p2 = new MyStack;
+
+	return 0;
+}
+#endif 
+
+
+
+
+
+
+
+
+
+
+
+class Employee{
+	int empId;
+	char* name;
+public:
+	Employee() {          // Default Constructor
+		empId = 4;
+		name = new char[5];
+		strcpy(name, "None");
+	}
+	Employee(int num, char* str) {    // parameterized constructor
+		cout << "PArameterized" << endl;
+		empId = num;
+		name = new char[strlen(str) + 1];
+		strcpy(name, str);
+	}                                   // Employee e2 = e1; 
+	Employee(const Employee& ob) {    // copy constructor 
+		empId = ob.empId;
+		name = new char[strlen(ob.name) + 1];
+		strcpy(name, ob.name);
+	}
+
+	void ReleaseMemory() { delete[] name; }
+	
+	~Employee() { delete[] name; cout << "destructor" << endl;}
+	
+	void Display() {
+		cout << "empId = " << empId << endl;
+		cout << "name = " << name << endl;
+	}
+	void ChangeName(char* str) { strcpy(name, str); }
+};
+
+void function1() {
+	Employee e3;
+	e3.Display();
+	e3.ReleaseMemory();
+}
+
+
+int main() {
+	
+	Employee* p = new Employee(1002, "Amit");
+
+	delete p;
+	int I = 15;     const int &j = I;    cout << I << endl << j << endl;   I = 9;     cout << I << endl << j << endl; return 0;
+
+	return 0;
+}
+
+int main() {
+	Person p1("Ajay");
+	Person p2("Vijay");
+	Person p3("Ashish");
+	Person p4("Manisha");
+
+
+	p1.AddFriend(p2);
+	p1.AddFriend(p4);
+	p1.AddFriend(p3);
+
+	p2.AddFriend(p1);
+	p2.AddFriend(p3);
+
+	p1.DisplayFriendList();         // Ajay : Vijay Manisha Ashish
+	p2.DisplayFriendList();         // Vijay : Ajay Ashish
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
